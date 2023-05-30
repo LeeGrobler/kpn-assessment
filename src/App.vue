@@ -1,14 +1,17 @@
 <template>
   <router-view />
+  <Alert />
 </template>
 
 <script lang="ts" setup>
   import { onMounted } from 'vue'
-  import { useAppStore } from './store/app'
 
-  const appStore = useAppStore()
+  import { useProductStore } from './store/product'
+  import Alert from './components/interface/Alert.vue'
+
+  const productStore = useProductStore()
 
   onMounted(async () => {
-    await appStore.loadProducts()
+    await productStore.loadProducts()
   })
 </script>
