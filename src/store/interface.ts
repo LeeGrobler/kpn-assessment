@@ -13,9 +13,8 @@ export const useInterfaceStore = defineStore('interface', {
   }),
 
   actions: {
-    toggleLoading(value?: boolean) {
-      if (value === undefined) value = !this.loading
-      this.loading = !this.loading
+    toggleLoading(value: boolean) {
+      this.loading = value
     },
 
     alert(cfg: Alert) {

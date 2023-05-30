@@ -5,11 +5,11 @@
     :title="interfaceStore.alertCfg.title"
     :text="interfaceStore.alertCfg.message"
     class="comp-root"
-  ></v-alert>
+  />
 </template>
 
 <script setup lang="ts">
-  import { useInterfaceStore } from '../../store/interface'
+  import { useInterfaceStore } from '@/store/interface'
 
   const interfaceStore = useInterfaceStore()
 </script>

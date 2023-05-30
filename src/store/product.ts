@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { Product } from '@/models/Product'
-import { useInterfaceStore } from './interface'
+import { useInterfaceStore } from '@/store/interface'
 
 interface FetchProductsResponse {
   products: Product[]
@@ -16,7 +16,7 @@ export const useProductStore = defineStore('product', {
       const interfaceStore = useInterfaceStore()
 
       try {
-        interfaceStore.toggleLoading()
+        interfaceStore.toggleLoading(true)
 
         const res = await fetch(import.meta.env.VITE_API_URL)
         if (!res.ok) throw new Error(`An error has occurred: ${res.status}`)
@@ -27,7 +27,7 @@ export const useProductStore = defineStore('product', {
         const message = err instanceof Error ? err.message : (err as string)
         interfaceStore.alert({ message, type: 'error' })
       } finally {
-        interfaceStore.toggleLoading()
+        interfaceStore.toggleLoading(false)
       }
     },
   },

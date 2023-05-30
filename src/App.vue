@@ -6,8 +6,8 @@
 <script lang="ts" setup>
   import { onMounted } from 'vue'
 
-  import { useProductStore } from './store/product'
-  import Alert from './components/interface/Alert.vue'
+  import { useProductStore } from '@/store/product'
+  import Alert from '@/components/interface/Alert.vue'
 
   const productStore = useProductStore()
 

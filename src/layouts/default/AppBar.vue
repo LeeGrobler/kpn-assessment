@@ -11,3 +11,13 @@
 <script lang="ts" setup>
   //
 </script>
+
+<style scoped lang="scss">
+  :deep(.v-toolbar__content) {
+    justify-content: center;
+
+    .v-toolbar-title {
+      max-width: 1200px;
+    }
+  }
+</style>
