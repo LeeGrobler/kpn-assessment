@@ -51,9 +51,23 @@ export const useProductStore = defineStore('product', {
             return true
           }
 
-          return (
-            item[property] === this.selectedFilters[property]?.split(' ')[0]
-          )
+          if (['manufacturer', 'operating_system'].includes(property)) {
+            return (
+              item[property] === this.selectedFilters[property]?.split(' ')[0]
+            )
+          }
+
+          if (property === 'colors') {
+            return item[property].includes(
+              this.selectedFilters[property]?.split(' ')[0] ?? ''
+            )
+          }
+
+          if (['has_5g', 'has_esim', 'refurbished'].includes(property)) {
+            const value = this.selectedFilters[property]?.split(' ')[0]
+            if (value === 'yes') return item[property] === true
+            if (value === 'no') return item[property] === false
+          }
         })
       }
 
