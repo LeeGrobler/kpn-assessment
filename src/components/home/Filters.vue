@@ -9,15 +9,6 @@
         :items="filterEntries(filter)"
         hide-details
       />
-
-      <v-select
-        v-model="productStore.selectedSortOption"
-        label="Sort By"
-        :items="productStore.sortOptions"
-        item-title="text"
-        return-object
-        hide-details
-      />
     </v-card-item>
   </v-card>
 </template>
