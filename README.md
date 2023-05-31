@@ -18,10 +18,7 @@ uses Vue's script setup syntax.
 
 ## Live Demo
 
-You can test the live application by visiting
-https://dummy-link-to-live-app.com. This version of the app is hosted and
-deployed from the main branch on GitHub and is updated automatically with every
-merge or push made into the main branch.
+You can test the live application by visiting https://kpn-assessment.web.app/.
 
 ## Getting Started
 
