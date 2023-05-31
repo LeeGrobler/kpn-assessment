@@ -1,12 +1,12 @@
 <template>
   <v-container class="fill-height">
-    <Filter />
+    <Filters />
     <Products />
   </v-container>
 </template>
 
 <script lang="ts" setup>
-  import Filter from '@/components/home/Filter.vue'
+  import Filters from '@/components/home/Filters.vue'
   import Products from '@/components/home/products/index.vue'
 </script>
 
