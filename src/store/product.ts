@@ -36,8 +36,6 @@ export const useProductStore = defineStore('product', {
     sortOptions: [
       { value: 'sold', text: 'Most Sold' },
       { value: 'new', text: 'New' },
-      { value: 'name', text: 'Name' },
-      { value: 'price', text: 'Price' },
     ] as SortOption[],
     selectedSortOption: null as SortOption | null,
   }),
@@ -56,10 +54,23 @@ export const useProductStore = defineStore('product', {
         })
       }
 
-      return (Object.keys(this.selectedFilters) as (keyof Filters)[]).reduce(
-        (acc, prop) => filterOnProperty(acc, prop),
-        this.products
-      )
+      return (Object.keys(this.selectedFilters) as (keyof Filters)[])
+        .reduce((acc, prop) => filterOnProperty(acc, prop), this.products)
+        .sort((a, b) => {
+          if (!this.selectedSortOption) return 0
+
+          switch (this.selectedSortOption.value) {
+            case 'sold':
+              return b.sort_order - a.sort_order
+            case 'new':
+              return (
+                new Date(b.release_date).getTime() -
+                new Date(a.release_date).getTime()
+              )
+            default:
+              return 0
+          }
+        })
     },
   },
 

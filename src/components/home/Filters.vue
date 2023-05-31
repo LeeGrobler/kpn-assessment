@@ -14,8 +14,8 @@
         v-model="productStore.selectedSortOption"
         label="Sort By"
         :items="productStore.sortOptions"
-        item-value="value"
         item-title="text"
+        return-object
         hide-details
       />
     </v-card-item>
@@ -50,6 +50,8 @@
         productStore.filters[key as keyof typeof productStore.filters]
       )[0] as keyof Filters
     })
+
+    console.log(Object.keys(productStore.filters.colors).join('\n'))
   })
 </script>
 

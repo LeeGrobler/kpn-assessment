@@ -1,7 +1,7 @@
 <template>
   <v-app-bar>
     <img
-      src="@/assets/kpn-logo.svg"
+      src="@/assets/images/kpn-logo.svg"
       alt="Logo"
       class="ml-4"
       style="height: 80%"
