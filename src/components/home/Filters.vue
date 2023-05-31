@@ -41,8 +41,6 @@
         productStore.filters[key as keyof typeof productStore.filters]
       )[0] as keyof Filters
     })
-
-    console.log(Object.keys(productStore.filters.colors).join('\n'))
   })
 </script>
 
