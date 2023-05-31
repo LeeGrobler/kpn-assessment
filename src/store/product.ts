@@ -44,7 +44,10 @@ export const useProductStore = defineStore('product', {
     filteredProducts(): Product[] {
       const filterOnProperty = (items: Product[], property: keyof Filters) => {
         return items.filter(item => {
-          if (this.selectedFilters[property]?.split(' ')[0] === 'All') {
+          if (
+            !this.selectedFilters[property] ||
+            this.selectedFilters[property]?.split(' ')[0] === 'All'
+          ) {
             return true
           }
 
