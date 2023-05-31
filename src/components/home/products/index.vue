@@ -12,7 +12,7 @@
     <v-col
       v-for="product in productStore.filteredProducts"
       :key="product.id"
-      cols="4"
+      :cols="smAndDown ? 12 : 4"
     >
       <Product :deets="product" />
     </v-col>
@@ -24,9 +24,12 @@
   import { useProductStore } from '@/store/product'
   import Loader from '@/components/home/products/Loader.vue'
   import Product from '@/components/home/products/Product.vue'
+  import { useDisplay } from 'vuetify/lib/framework.mjs'
 
   const productStore = useProductStore()
   const interfaceStore = useInterfaceStore()
+
+  const { smAndDown } = useDisplay()
 </script>
 
 <style scoped lang="scss"></style>
