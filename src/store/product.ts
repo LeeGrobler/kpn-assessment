@@ -25,12 +25,12 @@ export const useProductStore = defineStore('product', {
       refurbished: {},
     } as Filters,
     selectedFilters: {
-      manufacturer: null as keyof Filters | null,
-      operating_system: null as keyof Filters | null,
-      colors: null as keyof Filters | null,
-      has_5g: null as keyof Filters | null,
-      has_esim: null as keyof Filters | null,
-      refurbished: null as keyof Filters | null,
+      manufacturer: null as string | null,
+      operating_system: null as string | null,
+      colors: null as string | null,
+      has_5g: null as string | null,
+      has_esim: null as string | null,
+      refurbished: null as string | null,
     },
 
     sortOptions: [

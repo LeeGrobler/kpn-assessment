@@ -1,5 +1,5 @@
 <template>
-  <v-container class="fill-height">
+  <v-container>
     <Filters />
     <Products />
   </v-container>
