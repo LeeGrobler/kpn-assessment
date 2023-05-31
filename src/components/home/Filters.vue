@@ -44,6 +44,12 @@
 
   onMounted(() => {
     productStore.selectedSortOption = productStore.sortOptions[0]
+
+    Object.keys(productStore.selectedFilters).forEach(key => {
+      productStore.selectedFilters[key as keyof Filters] = Object.keys(
+        productStore.filters[key as keyof typeof productStore.filters]
+      )[0] as keyof Filters
+    })
   })
 </script>
 

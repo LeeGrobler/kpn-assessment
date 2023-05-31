@@ -42,6 +42,27 @@ export const useProductStore = defineStore('product', {
     selectedSortOption: null as SortOption | null,
   }),
 
+  getters: {
+    filteredProducts(): Product[] {
+      const filterOnProperty = (items: Product[], property: keyof Filters) => {
+        return items.filter(item => {
+          if (this.selectedFilters[property]?.split(' ')[0] === 'All') {
+            return true
+          }
+
+          return (
+            item[property] === this.selectedFilters[property]?.split(' ')[0]
+          )
+        })
+      }
+
+      return (Object.keys(this.selectedFilters) as (keyof Filters)[]).reduce(
+        (acc, prop) => filterOnProperty(acc, prop),
+        this.products
+      )
+    },
+  },
+
   actions: {
     async loadProducts() {
       const interfaceStore = useInterfaceStore()
@@ -66,12 +87,15 @@ export const useProductStore = defineStore('product', {
 
     generateFilters() {
       const simpleFilters = (property: 'manufacturer' | 'operating_system') => {
-        return this.products.reduce<Record<string, number>>((s, v) => {
-          if (!s[v[property]]) s[v[property]] = 1
-          else s[v[property]]++
+        return this.products.reduce<Record<string, number>>(
+          (s, v) => {
+            if (!s[v[property]]) s[v[property]] = 1
+            else s[v[property]]++
 
-          return s
-        }, {})
+            return s
+          },
+          { All: this.products.length }
+        )
       }
 
       const colorFilters = this.products.reduce<Record<string, number>>(
@@ -83,7 +107,7 @@ export const useProductStore = defineStore('product', {
 
           return s
         },
-        {}
+        { All: this.products.length }
       )
 
       const boolFilters = (property: 'has_5g' | 'has_esim' | 'refurbished') => {
@@ -94,7 +118,7 @@ export const useProductStore = defineStore('product', {
 
             return s
           },
-          { yes: 0, no: 0 }
+          { All: this.products.length, yes: 0, no: 0 }
         )
       }
 

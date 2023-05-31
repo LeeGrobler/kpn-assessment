@@ -9,7 +9,11 @@
   <Loader v-if="interfaceStore.loading" />
 
   <v-row v-if="productStore.products.length > 0">
-    <v-col v-for="product in productStore.products" :key="product.id" cols="4">
+    <v-col
+      v-for="product in productStore.filteredProducts"
+      :key="product.id"
+      cols="4"
+    >
       <Product :deets="product" />
     </v-col>
   </v-row>
