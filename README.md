@@ -1,4 +1,4 @@
-# Vue Product Catalog App
+# KPN Assessment
 
 This Vue.js application displays a list of products, with options for filtering
 and sorting the products. It uses Vuetify for UI components, Pinia for state
@@ -15,6 +15,13 @@ uses Vue's script setup syntax.
 - Loading state: shows a loading spinner when fetching data
 - Responsive: utilizes Vuetify's grid system to adjust layout for different
   screen sizes
+
+## Live Demo
+
+You can test the live application by visiting
+https://dummy-link-to-live-app.com. This version of the app is hosted and
+deployed from the main branch on GitHub and is updated automatically with every
+merge or push made into the main branch.
 
 ## Getting Started
 
@@ -65,9 +72,9 @@ data from.
 ## Running the App
 
 ```
-npm run serve
+npm run dev
 ```
 
-This starts a local development server at http://localhost:8080 (default
+This starts a local development server at http://localhost:3000 (default
 configuration). It features hot-reloading, so the app will automatically reload
 if you make changes to the source files.
