@@ -1,57 +1,73 @@
-# essentials
+# Vue Product Catalog App
 
-## Project setup
+This Vue.js application displays a list of products, with options for filtering
+and sorting the products. It uses Vuetify for UI components, Pinia for state
+management, and Vue Router for routing. The app is written in TypeScript and
+uses Vue's script setup syntax.
+
+## Features
+
+- Product list: displays a grid of product cards with images and details
+- Filters: allows users to filter products by manufacturer, operating system,
+  color, and other features
+- Sorting: allows users to sort products by most sold and newest
+- Alerts: provides user notifications via an alert system
+- Loading state: shows a loading spinner when fetching data
+- Responsive: utilizes Vuetify's grid system to adjust layout for different
+  screen sizes
+
+## Getting Started
+
+Here are the instructions to set up the project on your local machine for
+development.
+
+## Prerequisites
+
+- Node.js and npm: You need Node.js installed on your local machine to run this
+  app. npm (Node Package Manager), which comes with Node.js, is used to manage
+  the project's dependencies.
+- Vue CLI: This is a tool for scaffolding Vue.js projects. Install it globally
+  on your machine.
+
+## Installing
+
+1. Clone the repository
 
 ```
-# yarn
-yarn
+git clone https://github.com/LeeGrobler/kpn-assessment.git
+```
 
-# npm
+2. Navigate to the project directory
+
+```
+cd kpn-assessment
+```
+
+3. Install dependencies
+
+```
 npm install
-
-# pnpm
-pnpm install
 ```
 
-### Compiles and hot-reloads for development
+## Environment Variables
+
+Create a .env file at the root of your project and insert your key-value pairs
+in the following format of NAME=VALUE. Variables in .env files will be loaded
+into import.meta.env.
 
 ```
-# yarn
-yarn dev
-
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
+VITE_API_URL=your_api_url
 ```
 
-### Compiles and minifies for production
+Replace your_api_url with the URL of the server that the app fetches product
+data from.
+
+## Running the App
 
 ```
-# yarn
-yarn build
-
-# npm
-npm run build
-
-# pnpm
-pnpm build
+npm run serve
 ```
 
-### Lints and fixes files
-
-```
-# yarn
-yarn lint
-
-# npm
-npm run lint
-
-# pnpm
-pnpm lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://vitejs.dev/config/).
+This starts a local development server at http://localhost:8080 (default
+configuration). It features hot-reloading, so the app will automatically reload
+if you make changes to the source files.

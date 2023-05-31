@@ -12,8 +12,6 @@
 
 <style scoped lang="scss">
   .card {
-    /* margin: 0.625rem; */
-    /* width: 18.75rem; */
     background: #fff;
     border-radius: 0.313rem;
     box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.05);
