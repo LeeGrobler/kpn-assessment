@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mb-4">
+  <v-card class="root-card mb-4">
     <v-card-item class="filters">
       <v-select
         v-for="filter in Object.keys(productStore.filters)"
@@ -54,6 +54,10 @@
 </script>
 
 <style scoped lang="scss">
+  .root-card {
+    width: 100%;
+  }
+
   :deep(.v-card-item__content) {
     display: flex;
     gap: 0.5rem;
